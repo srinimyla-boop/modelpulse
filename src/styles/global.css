@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --color-ink: #211b2d;
+  --color-paper: #fbfaf7;
+  --color-violet-ink: #57369b;
+}
+
+:root {
+  color-scheme: light;
+  --muted: #625a6c;
+  --line: #e5dfea;
+  --lavender: #f0eafa;
+  --accent: #623bb1;
+}
+
+@layer base {
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  a:hover { @apply underline underline-offset-4; }
+  button, summary, select, input[type='checkbox'] { @apply cursor-pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  [hidden] { display: none !important; }
+  h1 { @apply font-serif font-normal tracking-tight; font-size: clamp(2.8rem, 7.5vw, 6.1rem); line-height: 1; overflow-wrap: anywhere; }
+  h2 { @apply text-2xl font-semibold tracking-tight; }
+  h3, h4 { @apply text-xl font-semibold tracking-tight; }
+  time { font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-[82rem] px-4 sm:px-8 lg:px-12; }
+  .skip-link { @apply sr-only focus:not-sr-only focus:fixed focus:z-20 focus:m-2 focus:bg-white focus:p-3; }
+  .site-header { border-bottom: 1px solid var(--line); background: #fff; }
+  .header-inner { @apply flex min-h-17 flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3; }
+  .brand { @apply inline-flex items-center gap-2 text-xl font-bold tracking-tight; }
+  .brand-mark { @apply inline-grid size-8 place-items-center rounded-lg text-white; background: var(--accent); }
+  nav { @apply flex flex-wrap items-center gap-1 sm:gap-2; }
+  nav a { @apply rounded-md px-2.5 py-2 text-sm font-medium sm:px-3; color: var(--muted); }
+  nav a[aria-current] { color: var(--color-violet-ink); background: var(--lavender); }
+  .hero { @apply my-6 grid gap-7 overflow-hidden rounded-2xl border p-6 sm:p-9 lg:my-10 lg:grid-cols-[1fr_15rem] lg:items-end lg:p-11; border-color: #ded2f2; background: radial-gradient(ellipse at 92% 0%, #e8d9fa, transparent 64%), #f5effb; }
+  .eyebrow { @apply mb-3 text-xs font-bold tracking-widest; color: var(--color-violet-ink); }
+  .accent { color: var(--accent); }
+  .lede { @apply mt-4 max-w-2xl text-base leading-relaxed sm:text-lg; color: var(--muted); }
+  .hero-stats { @apply grid grid-cols-3 gap-3 rounded-xl border bg-white/55 p-3 sm:p-4 lg:grid-cols-1; border-color: #ded2f2; }
+  .hero-stats div { @apply flex flex-col-reverse; }
+  .hero-stats dt { @apply text-xs; color: var(--muted); }
+  .hero-stats dd { @apply text-sm font-semibold sm:text-lg; }
+  .section-heading, .result-bar { @apply flex flex-wrap items-center justify-between gap-3; }
+  .section-heading { @apply mb-4; }
+  .segmented { @apply flex rounded-lg border bg-white p-0.5 text-sm; border-color: var(--line); }
+  .segmented button { @apply rounded-md px-3 py-1.5; }
+  .segmented button[aria-pressed='true'] { background: var(--lavender); color: var(--color-violet-ink); font-weight: 650; }
+  .filter-bar { @apply flex flex-wrap items-center gap-2 rounded-xl border bg-white p-3; border-color: var(--line); }
+  .filter-groups { @apply flex flex-wrap gap-2; }
+  .search { @apply flex min-w-0 grow items-center gap-2 rounded-md border px-3; border-color: var(--line); }
+  .search span[aria-hidden] { @apply text-xl; color: var(--accent); }
+  .search input { @apply w-full min-w-0 py-2 text-sm; }
+  .filter { @apply relative; }
+  .filter summary, select { @apply rounded-md border bg-white px-3 py-2 text-sm; border-color: var(--line); }
+  .filter summary:hover, .text-button:hover { background: var(--lavender); }
+  .filter summary span { @apply ml-1 rounded-full px-1.5 text-xs; background: var(--lavender); color: var(--color-violet-ink); }
+  .filter fieldset { @apply mt-1 max-h-64 min-w-44 overflow-auto rounded-lg border bg-white p-2 shadow-lg sm:absolute sm:left-0 sm:z-10; border-color: var(--line); }
+  .filter:last-child fieldset { @apply sm:right-0 sm:left-auto; }
+  .filter label { @apply flex cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm whitespace-nowrap hover:bg-violet-50; }
+  input[type='checkbox'] { accent-color: var(--accent); }
+  .text-button { @apply rounded-md px-2 py-2 text-sm font-semibold; color: var(--color-violet-ink); }
+  .result-bar { @apply my-3 text-sm; color: var(--muted); }
+  .table-wrap { @apply relative overflow-x-auto rounded-xl border bg-white; border-color: var(--line); }
+  table { @apply w-full text-left text-sm; border-collapse: collapse; }
+  thead { background: #f1edf6; }
+  th, td { @apply border-b px-4 py-3 align-top; border-color: var(--line); }
+  tbody tr:last-child > * { border-bottom: 0; }
+  tbody tr:hover { background: #fcfaff; }
+  td time { @apply whitespace-nowrap; }
+  .model-name { @apply text-base font-semibold; }
+  .subline, .meta { @apply text-sm; color: var(--muted); }
+  .subline { @apply mt-0.5 block; }
+  .tags { @apply flex flex-wrap gap-1; }
+  .tags li, .badge { @apply rounded-md px-2 py-0.5 text-xs leading-relaxed whitespace-nowrap; background: var(--lavender); color: var(--color-violet-ink); }
+  .card-grid { @apply grid gap-3 sm:grid-cols-2 lg:grid-cols-3; }
+  .card { @apply grid content-start gap-3 rounded-xl border bg-white p-5; border-color: var(--line); }
+  .card p:not(.meta) { @apply text-sm leading-relaxed; color: var(--muted); }
+  .card a, .model-name, .timeline-entry h4 a { color: var(--color-ink); }
+  .card a:hover, .model-name:hover, .timeline-entry h4 a:hover { color: var(--color-violet-ink); }
+  .empty { @apply rounded-xl border border-dashed p-6 text-sm; border-color: #cbbadf; color: var(--muted); }
+  .page-intro { @apply my-8 sm:my-12; }
+  .page-intro h1 { font-size: clamp(2.5rem, 7vw, 5.1rem); }
+  .back-link { @apply mb-5 inline-block text-sm font-semibold; color: var(--color-violet-ink); }
+  .page-intro h1 + .eyebrow { @apply mt-3; }
+  .page-actions { @apply mt-5 flex flex-wrap items-center gap-4; }
+  .action { @apply inline-block rounded-lg px-4 py-2.5 text-sm font-semibold text-white; background: var(--accent); }
+  .page-intro > .action { @apply mt-5; }
+  .source-link { @apply text-sm font-semibold; color: var(--color-violet-ink); }
+  .specs { @apply my-3 grid rounded-xl border bg-white sm:grid-cols-2; border-color: var(--line); }
+  .specs > div { @apply min-w-0 border-b p-4; border-color: var(--line); }
+  .specs dt { @apply mb-1 text-sm font-semibold; color: var(--muted); }
+  .specs a, .release-list a { color: var(--color-violet-ink); }
+  .family-list { @apply mt-8 grid gap-3; }
+  .release-list li { @apply flex flex-wrap justify-between gap-x-4 gap-y-1 border-t py-2 text-sm; border-color: var(--line); }
+  .timeline-year { @apply mt-6; }
+  .timeline-month { @apply mt-3; }
+  .timeline-month ol { @apply mt-3 ml-2 grid gap-3 border-l pl-5; border-color: #ccb9e4; }
+  .timeline-entry { @apply relative grid gap-2 rounded-xl border bg-white p-4 sm:p-5; border-color: var(--line); }
+  .timeline-entry::before { content: ''; @apply absolute top-6 -left-[26px] size-2.5 rounded-full; background: var(--accent); }
+  .timeline-entry p, .entry-meta { @apply text-sm; color: var(--muted); }
+  .entry-meta { @apply flex flex-wrap items-center gap-2; }
+  .selectors { @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4; }
+  .selectors label { @apply grid min-w-0 gap-2 text-sm font-semibold; }
+  .selectors select { @apply min-w-0 w-full font-normal; }
+  .comparison-table, [data-compare-message] { @apply mt-4; }
+  .comparison-table th, .comparison-table td { min-width: 9rem; }
+  .comparison-table th:first-child { @apply sticky left-0; background: #f1edf6; }
+  .site-footer { @apply mt-12 flex flex-wrap items-center justify-between gap-2 border-t py-6 text-sm; color: var(--muted); border-color: var(--line); }
+}

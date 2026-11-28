@@ -1,0 +1,20 @@
+{
+  "id": "gpt-6-2-sol",
+  "name": "GPT-6.2 Sol",
+  "family": "GPT",
+  "developerId": "openai",
+  "releaseDate": "2026-11-17",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "api"
+  ],
+  "license": "Proprietary",
+  "summary": "A faster, lower-cost GPT-6.2 variant designed for multi-step tasks.",
+  "announcementUrl": "https://help.openai.com/en/articles/9624314-model-release-notes#november-17-2026"
+}

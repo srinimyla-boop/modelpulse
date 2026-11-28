@@ -1,0 +1,23 @@
+{
+  "id": "gemini-4-neon",
+  "name": "Gemini 4 Neon",
+  "family": "Gemini",
+  "developerId": "google",
+  "releaseDate": "2026-11-18",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision",
+    "audio",
+    "video"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "A multimodal reasoning model for software engineering, analysis and long documents.",
+  "announcementUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+}

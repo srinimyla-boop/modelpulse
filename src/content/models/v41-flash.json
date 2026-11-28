@@ -1,0 +1,22 @@
+{
+  "id": "v41-flash",
+  "name": "DeepSeek V4.1 Flash",
+  "family": "DeepSeek V4",
+  "developerId": "deepseek",
+  "releaseDate": "2026-09-10",
+  "status": "legacy",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "open-weights",
+    "self-hosted"
+  ],
+  "license": "MIT",
+  "summary": "An efficient multimodal model with native visual understanding. The hosted alias now serves the October update.",
+  "announcementUrl": "https://api-docs.deepseek.com/news/news260910/",
+  "contextWindowTokens": 1000000
+}

@@ -1,0 +1,21 @@
+{
+  "id": "muse-wonder",
+  "name": "Muse Wonder",
+  "family": "Muse",
+  "developerId": "meta",
+  "releaseDate": "2026-10-28",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "A Muse model designed for long-running coding and tool-based work.",
+  "announcementUrl": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+}

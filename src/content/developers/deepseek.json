@@ -1,0 +1,16 @@
+{
+  "id": "deepseek",
+  "name": "DeepSeek",
+  "tagline": "Reasoning · Open weights · Efficient inference",
+  "overview": "Develops reasoning and general-purpose models with a focus on efficient inference and downloadable weights.",
+  "headquarters": "Hangzhou, China",
+  "foundedYear": 2023,
+  "focusAreas": [
+    "Reasoning",
+    "Open weights",
+    "Efficient inference"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://www.deepseek.com/",
+  "featured": false
+}

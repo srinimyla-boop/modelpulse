@@ -1,0 +1,16 @@
+---
+const { groups } = Astro.props as { groups: { name: string; title: string; options: [string, string][] }[] };
+---
+<div class="filter-groups">
+  {groups.map(({ name, title, options }) => (
+    <details class="filter">
+      <summary>{title} <span data-selected hidden></span></summary>
+      <fieldset>
+        <legend class="sr-only">{title}</legend>
+        {options.map(([value, text]) => (
+          <label><input type="checkbox" name={name} value={value} /> <span>{text}</span></label>
+        ))}
+      </fieldset>
+    </details>
+  ))}
+</div>

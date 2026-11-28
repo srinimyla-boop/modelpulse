@@ -1,0 +1,16 @@
+{
+  "id": "zai",
+  "name": "Z.ai (Zhipu AI)",
+  "tagline": "Language models · Coding · Vision",
+  "overview": "Develops the GLM family of language and vision models for coding and general-purpose tasks.",
+  "headquarters": "Beijing, China",
+  "foundedYear": 2019,
+  "focusAreas": [
+    "Language models",
+    "Coding",
+    "Vision"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://z.ai/",
+  "featured": false
+}

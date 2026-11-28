@@ -1,0 +1,16 @@
+{
+  "id": "mistral",
+  "name": "Mistral AI",
+  "tagline": "Language models · Open weights · Enterprise AI",
+  "overview": "Develops general-purpose and specialist models, with hosted and downloadable options across its portfolio.",
+  "headquarters": "Paris, France",
+  "foundedYear": 2023,
+  "focusAreas": [
+    "Language models",
+    "Open weights",
+    "Enterprise AI"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://mistral.ai/",
+  "featured": false
+}

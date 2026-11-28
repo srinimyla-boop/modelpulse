@@ -1,0 +1,16 @@
+{
+  "id": "anthropic",
+  "name": "Anthropic",
+  "tagline": "AI safety · Language models · Software engineering",
+  "overview": "Develops Claude models across several tiers for writing, coding, analysis and tool use.",
+  "headquarters": "San Francisco, United States",
+  "foundedYear": 2021,
+  "focusAreas": [
+    "AI safety",
+    "Language models",
+    "Software engineering"
+  ],
+  "opennessProfile": "proprietary",
+  "officialSite": "https://www.anthropic.com/",
+  "featured": true
+}

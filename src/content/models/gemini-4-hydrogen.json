@@ -1,0 +1,23 @@
+{
+  "id": "gemini-4-hydrogen",
+  "name": "Gemini 4 Hydrogen",
+  "family": "Gemini",
+  "developerId": "google",
+  "releaseDate": "2026-11-12",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision",
+    "audio",
+    "video"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "A speed-focused Gemini 4 model for everyday reasoning and tool-based workflows.",
+  "announcementUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+}

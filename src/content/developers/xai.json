@@ -1,0 +1,16 @@
+{
+  "id": "xai",
+  "name": "SpaceXSI (xAI)",
+  "tagline": "Reasoning · Language models · Software engineering",
+  "overview": "Develops the Grok model family for reasoning, software development and knowledge work.",
+  "headquarters": "Palo Alto, United States",
+  "foundedYear": 2023,
+  "focusAreas": [
+    "Reasoning",
+    "Language models",
+    "Software engineering"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://x.ai/",
+  "featured": false
+}

@@ -1,0 +1,45 @@
+---
+import Layout from '../components/Layout.astro';
+import Tags from '../components/Tags.astro';
+import Announcement from '../components/Announcement.astro';
+import { loadCatalog, dateLabel, contextLabel } from '../lib/catalog';
+const { models } = await loadCatalog();
+const rows = ['Developer', 'Family', 'Release date', 'Capabilities', 'Context window', 'Availability', 'License', 'Official announcement'];
+---
+<Layout title="Compare models" description="Compare specifications and access options for up to four AI models.">
+  <div class="page-intro"><h1>Compare models<span class="accent">.</span></h1><p class="lede">Select two to four models to compare their specifications side by side.</p></div>
+  <section aria-label="Model comparison" data-comparison>
+    <div class="selectors card">
+      {[0, 1, 2, 3].map((index) => <label>Model {index + 1}{index > 1 ? ' (optional)' : ''}
+        <select data-model>
+          <option value="">Choose a model</option>
+          {models.map((model) => <option value={model.id} selected={models[index]?.id === model.id && index < 2}>{model.name} · {model.developer.name}</option>)}
+        </select>
+      </label>)}
+    </div>
+    <noscript><p class="empty">Enable JavaScript to use the comparison selector.</p></noscript>
+    <p class="empty" data-compare-message role="status" hidden>Choose at least two models to compare.</p>
+    <div class="table-wrap comparison-table" role="region" tabindex="0" aria-label="Comparison matrix" hidden>
+      <table>
+        <thead><tr><th scope="col">Specification</th></tr></thead>
+        <tbody>{rows.map((row) => <tr><th scope="row">{row}</th></tr>)}</tbody>
+      </table>
+    </div>
+    {models.map((model) =>
+      <template data-model-id={model.id}>
+        <table><thead><tr><th scope="col"><a href={`/models/${model.id}/`}>{model.name}</a></th></tr></thead>
+        <tbody>
+          <tr><td><a href={`/developers/${model.developer.id}/`}>{model.developer.name}</a></td></tr>
+          <tr><td>{model.family}</td></tr>
+          <tr><td><time datetime={model.releaseDate}>{dateLabel(model.releaseDate)}</time></td></tr>
+          <tr><td><Tags values={model.capabilities} /></td></tr>
+          <tr><td>{contextLabel(model.contextWindowTokens)}</td></tr>
+          <tr><td><Tags values={model.availability} /></td></tr>
+          <tr><td>{model.license}</td></tr>
+          <tr><td><Announcement url={model.announcementUrl} /></td></tr>
+        </tbody></table>
+      </template>
+    )}
+  </section>
+</Layout>
+<script src="../scripts/compare.ts"></script>

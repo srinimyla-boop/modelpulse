@@ -1,0 +1,20 @@
+{
+  "id": "muse-spark",
+  "name": "Muse Spark",
+  "family": "Muse",
+  "developerId": "meta",
+  "releaseDate": "2026-04-08",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "vision"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "The first Muse language model, built for general reasoning and multimodal tasks.",
+  "announcementUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs"
+}

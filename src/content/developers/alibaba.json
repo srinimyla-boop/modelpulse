@@ -1,0 +1,16 @@
+{
+  "id": "alibaba",
+  "name": "Alibaba Cloud",
+  "tagline": "Language models · Multimodal AI · Cloud AI",
+  "overview": "Develops the Qwen family of language, vision and image models through the Qwen team.",
+  "headquarters": "Hangzhou, China",
+  "foundedYear": 2009,
+  "focusAreas": [
+    "Language models",
+    "Multimodal AI",
+    "Cloud AI"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://qwen.ai/",
+  "featured": false
+}

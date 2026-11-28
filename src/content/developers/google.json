@@ -1,0 +1,16 @@
+{
+  "id": "google",
+  "name": "Google DeepMind",
+  "tagline": "Multimodal AI · Scientific research · World models",
+  "overview": "Google’s AI research lab develops Gemini for multimodal work and Genie for interactive world generation.",
+  "headquarters": "London, United Kingdom",
+  "foundedYear": 2010,
+  "focusAreas": [
+    "Multimodal AI",
+    "Scientific research",
+    "World models"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://deepmind.google/",
+  "featured": true
+}

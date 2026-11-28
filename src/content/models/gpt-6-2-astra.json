@@ -1,0 +1,20 @@
+{
+  "id": "gpt-6-2-astra",
+  "name": "GPT-6.2 Astra",
+  "family": "GPT",
+  "developerId": "openai",
+  "releaseDate": "2026-11-17",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "api"
+  ],
+  "license": "Proprietary",
+  "summary": "OpenAI’s frontier model for advanced reasoning, software engineering and complex professional work.",
+  "announcementUrl": "https://help.openai.com/en/articles/9624314-model-release-notes#november-17-2026"
+}

@@ -1,0 +1,45 @@
+---
+import Layout from '../components/Layout.astro';
+import FilterOptions from '../components/FilterOptions.astro';
+import Tags from '../components/Tags.astro';
+import Announcement from '../components/Announcement.astro';
+import { loadCatalog, dateLabel, monthLabel } from '../lib/catalog';
+import { capabilities, label } from '../lib/taxonomy';
+const { models, developers } = await loadCatalog();
+const byYear = Map.groupBy(models, ({ releaseDate }) => releaseDate.slice(0, 4));
+const groups = [
+  { name: 'developer', title: 'Developer', options: developers.map(({ id, name }): [string, string] => [id, name]) },
+  { name: 'capability', title: 'Capability', options: capabilities.map((value): [string, string] => [value, label(value)]) },
+];
+---
+<Layout title="Release timeline" description="Follow AI model releases by year and month.">
+  <div class="page-intro"><h1>Release timeline<span class="accent">.</span></h1><p class="lede">Follow major model releases in reverse chronological order.</p></div>
+  <section data-catalog aria-label="Timeline releases">
+    <div class="filter-bar"><FilterOptions groups={groups} /><button type="button" class="text-button" data-reset>Reset filters</button></div>
+    <div class="result-bar"><p data-count role="status">{models.length} models</p><span>Newest first</span></div>
+    <p class="empty" data-empty hidden>No releases match these filters.</p>
+    {[...byYear].map(([year, releases]) => (
+      <section class="timeline-year" data-release-group>
+        <h2>{year}</h2>
+        {[...Map.groupBy(releases, ({ releaseDate }) => releaseDate.slice(0, 7))].map(([month, entries]) =>
+          <section class="timeline-month" data-release-group>
+            <h3>{monthLabel(month)}</h3>
+            <ol>
+              {entries.map((model) => <li class="timeline-entry" data-release={model.id} data-developer={model.developer.id} data-capability={model.capabilities.join('|')}>
+                <div class="entry-meta">
+                  <time datetime={model.releaseDate}>{dateLabel(model.releaseDate)}</time>
+                  <a class="badge" href={`/developers/${model.developer.id}/`}>{model.developer.name}</a>
+                </div>
+                <h4><a href={`/models/${model.id}/`}>{model.name}</a></h4>
+                <p>{model.summary}</p>
+                <Tags values={model.capabilities} />
+                <Announcement url={model.announcementUrl} />
+              </li>)}
+            </ol>
+          </section>
+        )}
+      </section>
+    ))}
+  </section>
+</Layout>
+<script src="../scripts/filter.ts"></script>
