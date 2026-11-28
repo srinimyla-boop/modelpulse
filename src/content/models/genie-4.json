@@ -1,0 +1,19 @@
+{
+  "id": "genie-4",
+  "name": "Genie 4",
+  "family": "Genie",
+  "developerId": "google",
+  "releaseDate": "2026-11-18",
+  "status": "active",
+  "capabilities": [
+    "video",
+    "audio"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "Interactive world generation with native audio and real-time scene changes.",
+  "announcementUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+}

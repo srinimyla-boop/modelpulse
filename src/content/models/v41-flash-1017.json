@@ -1,0 +1,24 @@
+{
+  "id": "v41-flash-1017",
+  "name": "DeepSeek V4.1 Flash 1017",
+  "family": "DeepSeek V4",
+  "developerId": "deepseek",
+  "releaseDate": "2026-10-17",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat",
+    "open-weights",
+    "self-hosted"
+  ],
+  "license": "MIT",
+  "summary": "An update to V4.1 Flash with improved coding and visual reasoning and shorter outputs.",
+  "announcementUrl": "https://api-docs.deepseek.com/news/news261017/",
+  "contextWindowTokens": 1000000
+}

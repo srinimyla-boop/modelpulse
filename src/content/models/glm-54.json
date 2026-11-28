@@ -1,0 +1,19 @@
+{
+  "id": "glm-54",
+  "name": "GLM-5.4",
+  "family": "GLM",
+  "developerId": "zai",
+  "releaseDate": "2026-11-23",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "A coding model with vision support for working from visual references.",
+  "announcementUrl": "https://zcode.z.ai/en/changelog"
+}

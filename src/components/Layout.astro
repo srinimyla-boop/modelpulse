@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+const { title, description } = Astro.props as { title: string; description: string };
+const nav = [['/', 'Explorer'], ['/timeline/', 'Timeline'], ['/compare/', 'Compare'], ['/developers/', 'Developers']];
+const active = (href: string) => href === '/' ? Astro.url.pathname === href : Astro.url.pathname.startsWith(href);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} · ModelPulse</title>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a href="/" class="brand"><span class="brand-mark" aria-hidden="true">↗</span> ModelPulse</a>
+        <nav aria-label="Main navigation">
+          {nav.map(([href, name]) => <a href={href} aria-current={active(href) ? (Astro.url.pathname === href ? 'page' : 'location') : undefined}>{name}</a>)}
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="shell site-footer"><a class="brand" href="/">ModelPulse</a><span>AI model & release directory</span></footer>
+  </body>
+</html>

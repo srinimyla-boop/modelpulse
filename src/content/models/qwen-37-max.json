@@ -1,0 +1,19 @@
+{
+  "id": "qwen-37-max",
+  "name": "Qwen3.7-Max",
+  "family": "Qwen",
+  "developerId": "alibaba",
+  "releaseDate": "2026-05-20",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding"
+  ],
+  "availability": [
+    "api"
+  ],
+  "license": "Proprietary",
+  "summary": "A Qwen model for multi-file software development, tool use and office workflows.",
+  "announcementUrl": "https://qwen.ai/blog?id=qwen3.7"
+}

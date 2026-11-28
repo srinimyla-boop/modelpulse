@@ -1,0 +1,20 @@
+{
+  "id": "grok-4-5",
+  "name": "Grok 4.5",
+  "family": "Grok",
+  "developerId": "xai",
+  "releaseDate": "2026-07-16",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "A reasoning model designed for engineering, software development and knowledge work.",
+  "announcementUrl": "https://x.ai/news/grok-4-5"
+}

@@ -1,0 +1,22 @@
+---
+import Layout from '../../components/Layout.astro';
+import Tags from '../../components/Tags.astro';
+import { loadCatalog } from '../../lib/catalog';
+import { label } from '../../lib/taxonomy';
+const { developers, models } = await loadCatalog();
+---
+<Layout title="Developers" description="Explore AI developers and their model families.">
+  <div class="page-intro"><h1>Developers<span class="accent">.</span></h1><p class="lede">Explore the organizations behind the models.</p></div>
+  <div class="card-grid">
+    {developers.map((developer) => {
+      const count = models.filter((model) => model.developer.id === developer.id).length;
+      return <article class="card developer-card">
+        <p class="meta">{developer.headquarters}</p>
+        <h2><a href={`/developers/${developer.id}/`}>{developer.name}</a></h2>
+        <p>{developer.overview}</p>
+        <Tags values={developer.focusAreas} />
+        <p class="meta">{label(developer.opennessProfile)} · {count} {count === 1 ? 'release' : 'releases'}</p>
+      </article>;
+    })}
+  </div>
+</Layout>

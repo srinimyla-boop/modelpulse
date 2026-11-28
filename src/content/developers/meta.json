@@ -1,0 +1,16 @@
+{
+  "id": "meta",
+  "name": "Meta",
+  "tagline": "Multimodal AI · Open weights · Media generation",
+  "overview": "Develops Muse models for language and media and publishes the Llama family of downloadable language models.",
+  "headquarters": "Menlo Park, United States",
+  "foundedYear": 2004,
+  "focusAreas": [
+    "Multimodal AI",
+    "Open weights",
+    "Media generation"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://ai.meta.com/",
+  "featured": false
+}

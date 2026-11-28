@@ -1,0 +1,21 @@
+{
+  "id": "fable-5-2",
+  "name": "Claude Fable 5.2",
+  "family": "Claude",
+  "developerId": "anthropic",
+  "releaseDate": "2026-11-09",
+  "status": "active",
+  "capabilities": [
+    "text",
+    "reasoning",
+    "coding",
+    "vision"
+  ],
+  "availability": [
+    "api",
+    "consumer-chat"
+  ],
+  "license": "Proprietary",
+  "summary": "Anthropic’s Claude variant for demanding technical work, coding and document analysis.",
+  "announcementUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+}

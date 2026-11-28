@@ -1,0 +1,41 @@
+---
+import Layout from '../../components/Layout.astro';
+import Tags from '../../components/Tags.astro';
+import { loadCatalog, dateLabel } from '../../lib/catalog';
+import { label } from '../../lib/taxonomy';
+
+export async function getStaticPaths() {
+  const { developers, models } = await loadCatalog();
+  return developers.map((developer) => ({
+    params: { slug: developer.id },
+    props: { developer, releases: models.filter((model) => model.developer.id === developer.id) },
+  }));
+}
+
+const { developer, releases } = Astro.props;
+const families = Map.groupBy(releases, ({ family }) => family);
+---
+<Layout title={developer.name} description={developer.overview}>
+  <div class="page-intro">
+    <a class="back-link" href="/developers/">← All developers</a>
+    <h1>{developer.name}<span class="accent">.</span></h1>
+    <p class="eyebrow">{developer.tagline}</p>
+    <p class="lede">{developer.overview}</p>
+    <a class="action" href={developer.officialSite} target="_blank" rel="noopener noreferrer">Official site ↗<span class="sr-only"> (opens in a new tab)</span></a>
+  </div>
+  <dl class="specs">
+    <div><dt>Headquarters</dt><dd>{developer.headquarters}</dd></div>
+    <div><dt>Founded</dt><dd>{developer.foundedYear}</dd></div>
+    <div><dt>Openness profile</dt><dd>{label(developer.opennessProfile)}</dd></div>
+    <div><dt>Focus areas</dt><dd><Tags values={developer.focusAreas} /></dd></div>
+  </dl>
+  <section class="family-list">
+    <h2>Model families</h2>
+    {[...families].map(([family, models]) => <section class="card">
+      <h3>{family}</h3>
+      <ul class="release-list">
+        {models.map((model) => <li><a href={`/models/${model.id}/`}>{model.name}</a><time datetime={model.releaseDate}>{dateLabel(model.releaseDate)}</time></li>)}
+      </ul>
+    </section>)}
+  </section>
+</Layout>

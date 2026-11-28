@@ -1,0 +1,16 @@
+{
+  "id": "openai",
+  "name": "OpenAI",
+  "tagline": "Language models · Reasoning · Media generation",
+  "overview": "Develops GPT models for general reasoning, software engineering and professional work, alongside specialized media models.",
+  "headquarters": "San Francisco, United States",
+  "foundedYear": 2015,
+  "focusAreas": [
+    "Language models",
+    "Reasoning",
+    "Media generation"
+  ],
+  "opennessProfile": "hybrid",
+  "officialSite": "https://openai.com/",
+  "featured": true
+}

@@ -1,0 +1,79 @@
+---
+import Layout from '../components/Layout.astro';
+import FilterOptions from '../components/FilterOptions.astro';
+import Tags from '../components/Tags.astro';
+import { loadCatalog, dateLabel } from '../lib/catalog';
+import { availability, capabilities, label } from '../lib/taxonomy';
+const { models, developers } = await loadCatalog();
+const options = (values: readonly string[]): [string, string][] => values.map((value) => [value, label(value)]);
+const licenses = [...new Set(models.map((model) => model.license))].sort();
+const groups = [
+  { name: 'developer', title: 'Developer', options: developers.map(({ id, name }): [string, string] => [id, name]) },
+  { name: 'capability', title: 'Capability', options: options(capabilities) },
+  { name: 'availability', title: 'Availability', options: options(availability) },
+  { name: 'license', title: 'License / openness', options: [['open-weights', 'Open weights'], ...licenses.map((license): [string, string] => [license, license])] as [string, string][] },
+];
+const attributes = (model: typeof models[number]) => ({
+  'data-release': model.id,
+  'data-developer': model.developer.id,
+  'data-capability': model.capabilities.join('|'),
+  'data-availability': model.availability.join('|'),
+  'data-license': [model.license, ...model.availability.filter((value) => value === 'open-weights')].join('|'),
+  'data-search': [model.name, model.family, model.developer.name, model.summary, ...model.capabilities.map(label), ...model.availability.map(label), model.license].join(' '),
+});
+---
+<Layout title="Model explorer" description="Browse and compare AI model releases by developer, capability, availability, and license.">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">AI MODEL & RELEASE DIRECTORY</p>
+      <h1>Explore AI models<span class="accent">.</span></h1>
+      <p class="lede">Track releases from leading AI developers and compare what each model can do, how to access it, and what license applies.</p>
+    </div>
+    <dl class="hero-stats">
+      <div><dt>Model releases</dt><dd>{models.length}</dd></div>
+      <div><dt>Developers</dt><dd>{developers.length}</dd></div>
+      <div><dt>Latest release</dt><dd>{dateLabel(models[0].releaseDate)}</dd></div>
+    </dl>
+  </section>
+  <section data-catalog aria-labelledby="catalog-title">
+    <div class="section-heading">
+      <h2 id="catalog-title">Model explorer</h2>
+      <div class="segmented" role="group" aria-label="Results view">
+        <button type="button" data-view="table" aria-pressed="true">Table</button>
+        <button type="button" data-view="cards" aria-pressed="false">Cards</button>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <label class="search"><span class="sr-only">Search models</span><span aria-hidden="true">⌕</span><input type="search" name="q" placeholder="Search models or developers" /></label>
+      <FilterOptions groups={groups} />
+      <button class="text-button" type="button" data-reset>Reset filters</button>
+    </div>
+    <div class="result-bar"><p data-count role="status">{models.length} models</p><span>Newest first</span></div>
+    <p class="empty" data-empty hidden>No models match these filters.</p>
+    <div class="table-wrap" data-panel="table" tabindex="0" role="region" aria-label="Model results table">
+      <table>
+        <thead><tr><th scope="col">Model</th><th scope="col">Released</th><th scope="col">Capabilities</th><th scope="col">Availability</th><th scope="col">License</th></tr></thead>
+        <tbody>
+          {models.map((model) => <tr {...attributes(model)}>
+            <td><a class="model-name" href={`/models/${model.id}/`}>{model.name}</a><span class="subline">{model.developer.name}</span></td>
+            <td><time datetime={model.releaseDate}>{dateLabel(model.releaseDate)}</time></td>
+            <td><Tags values={model.capabilities} /></td>
+            <td><Tags values={model.availability} /></td>
+            <td>{model.license}</td>
+          </tr>)}
+        </tbody>
+      </table>
+    </div>
+    <div class="card-grid" data-panel="cards" hidden>
+      {models.map((model) => <article class="card" {...attributes(model)}>
+        <p class="meta">{model.developer.name} · <time datetime={model.releaseDate}>{dateLabel(model.releaseDate)}</time></p>
+        <h3><a href={`/models/${model.id}/`}>{model.name}</a></h3>
+        <p>{model.summary}</p>
+        <Tags values={model.capabilities} />
+        <Tags values={model.availability} />
+        <p class="meta">{model.license}</p>
+      </article>)}
+    </div>
+  </section>
+</Layout>
+<script src="../scripts/filter.ts"></script>
